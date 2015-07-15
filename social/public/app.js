@@ -1,2 +1,2 @@
 
-var app = angular.module('social', []);
+var app = angular.module('social', ['ngRoute']);

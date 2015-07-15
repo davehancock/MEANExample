@@ -17,14 +17,11 @@ router.get('/api/posts', function (req, res, next) {
 
 router.post('/api/posts', function (req, res, next) {
 
-    console.log('Post Received!');
-    console.log('Post username: ', req.body.username);
-    console.log('Post body: ', req.body.body);
-
     var post = new Post({
-        username: req.body.username,
         body: req.body.body
     });
+
+    post.username = req.auth.username;
 
     post.save(function (err, post) {
         if (err) {

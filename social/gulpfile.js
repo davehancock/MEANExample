@@ -8,5 +8,5 @@ fs.readdirSync(__dirname + '/gulp').forEach(function (task) {
 
 gulp.task('build', ['css', 'js', 'html']);
 
-gulp.task('dev', ['watch:js', 'watch:css', 'dev:server']);
+gulp.task('dev', ['watch:js', 'watch:css', 'watch:html', 'dev:server']);
 

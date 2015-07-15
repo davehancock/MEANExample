@@ -22,3 +22,7 @@ gulp.task('html', function () {
 gulp.task('watch:js', ['js'], function () {
     gulp.watch('public/**/*.js', ['js']);
 });
+
+gulp.task('watch:html', ['html'], function () {
+    gulp.watch('public/**/*.html', ['html']);
+});

@@ -30,34 +30,35 @@ app.post('/user', function (req, res, next) {
 app.get('/user', function (req, res) {
 
     var token = req.headers['x-auth'];
-    var user = jwt.decode(token, secretKey);
+    var auth = jwt.decode(token, secretKey);
 
-    res.json(user);
+    User.findOne({username: auth.username}, function (err, user) {
+        res.json(user);
+    })
 });
 
 var secretKey = 'myownsecret';
 
 app.post('/session', function (req, res) {
 
-    var username = req.body.username;
-    var user = findUserByUsername(username);
-
-    validateUser(user, req.body.password, function (err, valid) {
-        if (err || !valid) {
+    User.findOne({username: req.body.username}).select('password').exec(function (err, user, next) {
+        if (err) {
+            return next(err);
+        }
+        if (!user) {
             return res.sendStatus(401);
         }
-        var token = jwt.encode({username: username}, secretKey);
-        res.json(token);
+        bcrypt.compare(req.body.password, user.password, function (err, valid) {
+            if (err) {
+                return next(err);
+            }
+            if (!valid) {
+                return res.sendStatus(401);
+            }
+            var token = jwt.encode({username: user.username}, secretKey);
+            res.json(token);
+        });
     });
 });
-
-
-function findUserByUsername(username) {
-    return _.find(users, {username: username});
-}
-
-function validateUser(user, password, cb) {
-    bcrypt.compare(password, user.password, cb)
-}
 
 app.listen(3000);
