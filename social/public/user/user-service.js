@@ -13,8 +13,16 @@ app.service('UserService', function ($http) {
         })
     }
 
+    service.logout = function(){
+        $http.defaults.headers.common['X-Auth'] = "";
+    }
+
     service.getUser = function () {
         return $http.get('/api/users');
+    }
+
+    service.createUser = function (user) {
+        return $http.post('api/users', user);
     }
 
 });

@@ -1,2 +1,1 @@
-
-var app = angular.module('social', ['ngRoute']);
+var app = angular.module('social', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);

@@ -13,7 +13,7 @@ router.post('/api/users', function (req, res, next) {
             if (err) {
                 throw next(err);
             }
-            res.sendStatus(201);
+            res.status(201).json(user);
         });
     });
 });

@@ -6,4 +6,5 @@ app.controller('LoginCtrl', function ($scope, UserService) {
                 $scope.$emit('login', response.data);
             });
     }
+
 });
