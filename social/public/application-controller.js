@@ -1,5 +1,16 @@
 app.controller('ApplicationCtrl', function ($scope, UserService, $modal, $log) {
 
+    var checkLastUser = function () {
+        var lastUser = window.localStorage.getItem('token');
+        if (lastUser) {
+            UserService.getUser().then(function (response) {
+                $scope.currentUser = response.data;
+            });
+        }
+    }
+
+    checkLastUser();
+
     $scope.$on('login', function (_, user) {
         $scope.currentUser = user;
     })
@@ -13,6 +24,7 @@ app.controller('ApplicationCtrl', function ($scope, UserService, $modal, $log) {
 
         modalInstance.result.then(function (doLogout) {
             UserService.logout();
+            var d = window.localStorage.getItem('token');
             $scope.currentUser = null;
         }, function () {
             $log.info('modal dismissed at: ' + new Date());
