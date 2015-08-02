@@ -1,9 +1,9 @@
 var db = require('../db')
 
-var Post = db.model('Post', {
-    username: {type: String, required: true},
+var post = db.Schema({
+    user: {type: db.Schema.Types.ObjectId, ref: 'User', required: true},
     body: {type: String, required: true},
     date: {type: Date, required: true, default: Date.now}
 });
 
-module.exports = Post;
+module.exports = db.model('Post', post);

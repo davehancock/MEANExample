@@ -24,12 +24,10 @@ app.controller('ApplicationCtrl', function ($scope, UserService, $modal, $log) {
 
         modalInstance.result.then(function (doLogout) {
             UserService.logout();
-            var d = window.localStorage.getItem('token');
             $scope.currentUser = null;
         }, function () {
             $log.info('modal dismissed at: ' + new Date());
         });
-
     };
 
 });

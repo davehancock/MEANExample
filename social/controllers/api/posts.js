@@ -1,10 +1,12 @@
 var Post = require('../../models/post');
+var User = require('../../models/user');
 var router = require('express').Router();
 
 router.get('/api/posts', function (req, res, next) {
 
     Post.find()
         .sort('-date')
+        .populate('user')
         .exec(function (err, posts) {
             if (err) {
                 // TODO understand what next() function does
@@ -17,18 +19,24 @@ router.get('/api/posts', function (req, res, next) {
 
 router.post('/api/posts', function (req, res, next) {
 
-    var post = new Post({
-        body: req.body.body
-    });
-
-    post.username = req.auth.username;
-
-    post.save(function (err, post) {
+    // TODO Understand how the username is extracted here
+    User.findOne({username: req.auth.username}, function (err, user) {
         if (err) {
-            // TODO understand what next() function does
-            return next(err)
+            return next(err);
         }
-        res.status(201).json(post);
+
+        var post = new Post({
+            user: user,
+            body: req.body.body
+        });
+
+        post.save(function (err, savedPost) {
+            if (err) {
+                // TODO understand what next() function does
+                return next(err)
+            }
+            res.status(201).json(savedPost);
+        });
     });
 
 });

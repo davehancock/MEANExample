@@ -5,13 +5,10 @@ app.controller('PostsCtrl', function ($scope, PostsService) {
     });
 
     $scope.addPost = function () {
-        var post = {
-            username: 'foo user',
-            body: $scope.postBody
-        }
 
         if ($scope.postBody) {
-            PostsService.savePost(post).success(function (data) {
+
+            PostsService.savePost({body: $scope.postBody}).success(function (data) {
                 $scope.posts.unshift(data);
                 $scope.postBody = null;
             });

@@ -41,6 +41,6 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 
-
+assets
 
 social/npm-debug.log

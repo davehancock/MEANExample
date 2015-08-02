@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="app.css">
+    <!-- TODO Review what this does -->
     <base href="/">
 </head>
 
@@ -15,11 +16,11 @@
             <li><a href="register">Register</a></li>
             <li><a href="login">Login</a></li>
         </ul>
-        <ul ng-if="currentUser" class="nav navbar-nav navbar-right ">
+        <ul ng-cloak ng-if="currentUser" class="nav navbar-nav navbar-right ">
             <li><a href="#" ng-click="logout()">Logout</a></li>
             <li>
                 <p class="navbar-text">
-                    Signed in as: {{currentUser.username}}
+                    Signed in as: <span ng-bind="currentUser.username"></span>
                 </p>
             </li>
         </ul>
