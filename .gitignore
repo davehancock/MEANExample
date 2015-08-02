@@ -42,3 +42,5 @@ buildNumber.properties
 .mvn/timing.properties
 
 
+
+social/npm-debug.log
