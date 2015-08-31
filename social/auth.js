@@ -6,4 +6,4 @@ module.exports = function (req, res, next) {
         req.auth = jwt.decode(req.headers['x-auth'], config.secretKey);
     }
     next();
-}
+};

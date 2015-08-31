@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var jwt = require('jwt-simple');
 var _ = require('lodash');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 
 var User = require('./user');
 
@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 
 app.post('/user', function (req, res, next) {
     var user = new User({username: req.body.username});
-    bcrypt.hash(req.body.password, 10, function (err, hash) {
+    bcrypt.hash(req.body.password, null, null, function (err, hash) {
         user.password = hash;
         user.save(function (err, user) {
             if (err) {
