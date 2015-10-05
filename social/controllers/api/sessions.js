@@ -1,5 +1,5 @@
 var jwt = require('jwt-simple');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 
 var router = require('express').Router();
 var config = require('../../config');

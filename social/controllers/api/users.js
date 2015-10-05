@@ -1,5 +1,5 @@
 var jwt = require('jwt-simple');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 
 var router = require('express').Router();
 var config = require('../../config');
@@ -7,7 +7,7 @@ var User = require('../../models/user');
 
 router.post('/api/users', function (req, res, next) {
     var user = new User({username: req.body.username});
-    bcrypt.hash(req.body.password, 10, function (err, hash) {
+    bcrypt.hash(req.body.password, null, null, function (err, hash) {
         user.password = hash;
         user.save(function (err, user) {
             if (err) {
