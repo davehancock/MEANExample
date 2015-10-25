@@ -4,6 +4,7 @@ node_js:
   - "0.10.25"
 
 before_script:
+  - cd social
   - npm install -g gulp
   - gulp build
 
