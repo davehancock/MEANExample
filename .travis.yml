@@ -6,8 +6,6 @@ node_js:
 before_script:
   - cd social
 
-script: gulp
-
 notifications:
   email: false
 
