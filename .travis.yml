@@ -5,8 +5,8 @@ node_js:
 
 before_script:
   - cd social
-  - npm install
-  - gulp build
+
+script: gulp
 
 notifications:
   email: false
