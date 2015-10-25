@@ -2,10 +2,12 @@
 node_modules/
 
 *.iml
-.idea/
+.idea
 
 atlassian-ide-plugin.xml
 
-build/
+build
 
 assets
+
+
