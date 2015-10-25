@@ -1,5 +1,7 @@
 # MEANExample - WIP
 
+[![Build Status](https://travis-ci.org/daves125125/MEANExample.svg)](https://travis-ci.org/daves125125/MEANExample)
+
 A set of modules encompassing an example of how to use the MEAN stack, i.e:
 
 - MongoDB
