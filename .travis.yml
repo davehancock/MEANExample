@@ -5,7 +5,7 @@ node_js:
 
 before_script:
   - cd social
-  - npm install gulp
+  - npm install
   - gulp build
 
 notifications:
