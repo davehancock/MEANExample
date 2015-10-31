@@ -1,0 +1,15 @@
+language: node_js
+
+node_js:
+  - "0.10.25"
+
+before_script:
+  - cd social
+  - npm install
+
+script: gulp
+
+notifications:
+  email: false
+
+
