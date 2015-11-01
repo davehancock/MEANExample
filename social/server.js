@@ -12,8 +12,8 @@ app.use(require('./controllers/api/posts'));
 app.use(require('./controllers/api/users'));
 app.use(require('./controllers/api/sessions'));
 
-app.listen(3000, function () {
-    console.log('Server Listening on port:', 3000);
+app.listen(8080, function () {
+    console.log('Server Listening on port:', 8080);
 })
 
 
