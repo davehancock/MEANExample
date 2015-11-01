@@ -8,7 +8,7 @@ fs.readdirSync(__dirname + '/gulp').forEach(function (task) {
 
 gulp.task('dev', ['watch:js', 'watch:css', 'watch:html', 'dev:server']);
 
-gulp.task('build', ['css', 'js', 'html']);
+gulp.task('build', ['css', 'js', 'html', 'images']);
 
 // Set the default task to be "build" for now.
 gulp.task('default', ['build']);

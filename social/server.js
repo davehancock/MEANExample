@@ -1,8 +1,11 @@
 var express = require('express');
+var favicon = require('serve-favicon');
 var bodyParser = require('body-parser');
 var webSocketServer = require('./websockets');
 
 var app = express();
+
+app.use(favicon(__dirname + '/assets/favicon.png'));
 
 app.use(bodyParser.json());
 app.use(express.static('assets'));

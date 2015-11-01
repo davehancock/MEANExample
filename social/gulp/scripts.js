@@ -19,6 +19,11 @@ gulp.task('html', function () {
         .pipe(gulp.dest('assets'));
 });
 
+gulp.task('images', function () {
+    gulp.src(['public/images/*.*'])
+        .pipe(gulp.dest('assets'))
+});
+
 gulp.task('watch:js', ['js'], function () {
     gulp.watch('public/**/*.js', ['js']);
 });
