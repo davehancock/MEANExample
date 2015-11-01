@@ -13,8 +13,8 @@ app.use(require('./controllers/api/posts'));
 app.use(require('./controllers/api/users'));
 app.use(require('./controllers/api/sessions'));
 
-var server = app.listen(80, function () {
-    console.log('Server Listening on port:', 80);
+var server = app.listen(3001, function () {
+    console.log('Server Listening on port:', 3001);
 })
 
 webSocketServer.connect(server);
