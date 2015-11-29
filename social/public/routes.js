@@ -1,4 +1,4 @@
-angular.module('social').config(function ($routeProvider, $locationProvider) {
+app.config(function ($routeProvider, $locationProvider) {
 
     $routeProvider
         .when('/', {
