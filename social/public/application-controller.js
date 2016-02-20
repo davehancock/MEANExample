@@ -7,19 +7,19 @@ app.controller('ApplicationCtrl', function ($scope, UserService, $modal, $log) {
                 $scope.currentUser = response.data;
             });
         }
-    }
+    };
 
     checkLastUser();
 
     $scope.$on('login', function (_, user) {
         $scope.currentUser = user;
-    })
+    });
 
     $scope.logout = function () {
 
         var modalInstance = $modal.open({
             templateUrl: 'logout/logout-modal.html',
-            controller: 'LogoutModalCtrl',
+            controller: 'LogoutModalCtrl'
         });
 
         modalInstance.result.then(function (doLogout) {
@@ -28,6 +28,7 @@ app.controller('ApplicationCtrl', function ($scope, UserService, $modal, $log) {
         }, function () {
             $log.info('modal dismissed at: ' + new Date());
         });
+
     };
 
 });

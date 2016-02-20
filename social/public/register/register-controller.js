@@ -5,7 +5,7 @@ app.controller('RegisterCtrl', function ($scope, UserService) {
         var user = {
             username: username,
             password: password
-        }
+        };
 
         UserService.createUser(user)
             .then(function (response) {
